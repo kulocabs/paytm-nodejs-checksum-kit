@@ -24,13 +24,13 @@ function route(request,response){
 				paramarray['CALLBACK_URL'] = 'https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp';//Provided by Paytm
 				paramarray['EMAIL'] = 'abc@gmail.com'; // customer email id
 				paramarray['MOBILE_NO'] = '9999999999'; // customer 10 digit mobile no.
-					paytm_checksum.genchecksum(paramarray, paytm_config.MERCHANT_KEY, function (err, res) {
-						response.writeHead(200, {'Content-type' : 'text/json','Cache-Control': 'no-cache'});
-						response.write(JSON.stringify(res));
-						response.end();
-					});
-				};
-			}else{
+				paytm_checksum.genchecksum(paramarray, paytm_config.MERCHANT_KEY, function (err, res) {
+					response.writeHead(200, {'Content-type' : 'text/json','Cache-Control': 'no-cache'});
+					response.write(JSON.stringify(res));
+					response.end();
+				});
+
+			} else {
 				response.writeHead(200, {'Content-type' : 'text/json'});
 				response.end();
 			}
